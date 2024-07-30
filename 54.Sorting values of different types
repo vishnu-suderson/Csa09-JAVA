@@ -1,0 +1,70 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+class GenericSorter<T extends Comparable<T>> {
+    private List<T> values;
+    public GenericSorter() {
+        values = new ArrayList<>();
+    }
+    public void addValue(T value) {
+        values.add(value);
+    }
+    public void sortValues() {
+        Collections.sort(values);
+    }
+    public void displayValues() {
+        for (T value : values) {
+            System.out.println(value);
+        }
+    }
+}
+public class GenericSorterDemo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Choose the type of values to sort:");
+        System.out.println("1. Integer");
+        System.out.println("2. String");
+        int choice = scanner.nextInt();
+        scanner.nextLine(); 
+        switch (choice) {
+            case 1:
+                GenericSorter<Integer> integerSorter = new GenericSorter<>();
+                System.out.println("Enter integers to sort (type 'done' to finish):");
+                while (true) {
+                    String input = scanner.nextLine();
+                    if (input.equalsIgnoreCase("done")) {
+                        break;
+                    }
+                    try {
+                        Integer value = Integer.parseInt(input);
+                        integerSorter.addValue(value);
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid input. Please enter an integer.");
+                    }
+                }
+                integerSorter.sortValues();
+                System.out.println("Sorted integers:");
+                integerSorter.displayValues();
+                break;
+            case 2:
+                GenericSorter<String> stringSorter = new GenericSorter<>();
+                System.out.println("Enter strings to sort (type 'done' to finish):");
+                while (true) {
+                    String input = scanner.nextLine();
+                    if (input.equalsIgnoreCase("done")) {
+                        break;
+                    }
+                    stringSorter.addValue(input);
+                }
+                stringSorter.sortValues();
+                System.out.println("Sorted strings:");
+                stringSorter.displayValues();
+                break;
+            default:
+                System.out.println("Invalid choice. Exiting.");
+                break;
+        }
+        scanner.close();
+    }
+}

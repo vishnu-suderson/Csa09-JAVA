@@ -1,0 +1,83 @@
+import java.util.Scanner;
+public class StatementSyntaxDemo {
+    public static void printIfStatementSyntax() {
+        System.out.println("Syntax of if statement:");
+        System.out.println("if (condition) {");
+        System.out.println("    // code block");
+        System.out.println("} else if (condition) {");
+        System.out.println("    // code block");
+        System.out.println("} else {");
+        System.out.println("    // code block");
+        System.out.println("}");
+    }
+    public static void printSwitchStatementSyntax() {
+        System.out.println("Syntax of switch statement:");
+        System.out.println("switch (expression) {");
+        System.out.println("    case value1:");
+        System.out.println("        // code block");
+        System.out.println("        break;");
+        System.out.println("    case value2:");
+        System.out.println("        // code block");
+        System.out.println("        break;");
+        System.out.println("    // you can have any number of case statements");
+        System.out.println("    default:");
+        System.out.println("        // code block");
+        System.out.println("}");
+    }
+    public static void printForLoopSyntax() {
+        System.out.println("Syntax of for loop:");
+        System.out.println("for (initialization; condition; increment/decrement) {");
+        System.out.println("    // code block");
+        System.out.println("}");
+    }
+    public static void printWhileLoopSyntax() {
+        System.out.println("Syntax of while loop:");
+        System.out.println("while (condition) {");
+        System.out.println("    // code block");
+        System.out.println("}");
+    }
+    public static void printDoWhileLoopSyntax() {
+        System.out.println("Syntax of do-while loop:");
+        System.out.println("do {");
+        System.out.println("    // code block");
+        System.out.println("} while (condition);");
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+        do {
+            System.out.println("\nMenu:");
+            System.out.println("1. If Statement");
+            System.out.println("2. Switch Statement");
+            System.out.println("3. For Loop");
+            System.out.println("4. While Loop");
+            System.out.println("5. Do-While Loop");
+            System.out.println("0. Exit");
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+            switch (choice) {
+                case 1:
+                    printIfStatementSyntax();
+                    break;
+                case 2:
+                    printSwitchStatementSyntax();
+                    break;
+                case 3:
+                    printForLoopSyntax();
+                    break;
+                case 4:
+                    printWhileLoopSyntax();
+                    break;
+                case 5:
+                    printDoWhileLoopSyntax();
+                    break;
+                case 0:
+                    System.out.println("Exiting the program...");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        } while (choice != 0);
+        scanner.close();
+    }
+}

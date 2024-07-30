@@ -1,0 +1,33 @@
+import java.util.Scanner;
+public class Overload {
+    private int value1;
+    private int value2;
+    public void assignValues(int val) {
+        value1 = val;
+    }
+    public void assignValues(int val1, int val2) {
+        value1 = val1;
+        value2 = val2;
+    }
+    public int getValue1() {
+        return value1;
+    }
+    public int getValue2() {
+        return value2;
+    }
+    public static void main(String[] args) {
+        Overload obj = new Overload();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter value 1: ");
+        int val1 = scanner.nextInt();
+        obj.assignValues(val1);
+        System.out.println("Value 1: " + obj.getValue1());
+        System.out.println("Value 2: " + obj.getValue2()); 
+        System.out.print("\nEnter value 2: ");
+        int val2 = scanner.nextInt();
+        obj.assignValues(val1, val2);
+        System.out.println("Value 1: " + obj.getValue1());
+        System.out.println("Value 2: " + obj.getValue2());
+        scanner.close();
+    }
+}

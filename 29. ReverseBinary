@@ -1,0 +1,13 @@
+import java.util.Scanner;
+public class ReverseBinary {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a decimal number: ");
+        int decimal = scanner.nextInt();
+        String binary = Integer.toBinaryString(decimal);
+        String reversedBinary = new StringBuilder(binary).reverse().toString();
+        int reversedDecimal = Integer.parseInt(reversedBinary, 2);
+        System.out.println("Reversed Decimal: " + reversedDecimal);
+        scanner.close();
+    }
+}

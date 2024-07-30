@@ -1,0 +1,21 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+public class DistinctCharactersCount {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a string:");
+        String inputString = scanner.nextLine();
+        Map<Character, Integer> charCountMap = new HashMap<>();
+        for (int i = 0; i < inputString.length(); i++) {
+            char ch = inputString.charAt(i);
+            if (ch != ' ') {
+                charCountMap.put(ch, charCountMap.getOrDefault(ch, 0) + 1);
+            }
+        }
+        System.out.println("Distinct characters and their counts:");
+        for (Map.Entry<Character, Integer> entry : charCountMap.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+    }
+}
