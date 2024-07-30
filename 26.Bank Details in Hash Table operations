@@ -1,0 +1,19 @@
+import java.util.Hashtable;
+import java.util.Scanner;
+public class BankDetails {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Hashtable<Integer, String> bankDetails = new Hashtable<>();
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Enter Account Number:");
+            int accountNumber = scanner.nextInt();
+            System.out.println("Enter Customer Name:");
+            String customerName = scanner.next();
+            bankDetails.put(accountNumber, customerName);
+        }
+        System.out.println("Size of HashTable: " + bankDetails.size());
+        bankDetails.clear();
+        System.out.println("HashTable cleared.");
+        scanner.close();
+    }
+}
